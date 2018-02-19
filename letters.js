@@ -23,6 +23,8 @@ var Letter = function(letter) {
 
 			this.guessed = true;
 
+			console.log("\nCorrect!\n");
+
 		}
 
 	} 

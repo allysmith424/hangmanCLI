@@ -6,6 +6,12 @@ var Word = function() {
 
 	this.wordDisplayed = "";
 
+	this.wordGuessed = false;
+
+	this.numOfLetters = this.lettersArray.length;
+
+	this.lettersGuessed = 0;
+
 	this.addLetter = function(char) {
 
 		var newLetter = new Letter(char);
@@ -26,7 +32,7 @@ var Word = function() {
 
 		}
 
-		console.log("Word displayed: " + this.wordDisplayed); 
+		console.log("\n\n" + this.wordDisplayed + "\n\n"); 
 
 	}
 
@@ -35,6 +41,32 @@ var Word = function() {
 		for (var i = 0; i < this.lettersArray.length; i++) {
 
 			this.lettersArray[i].checkChar(char);
+
+		}
+
+	}
+
+	this.checkWord = function() {
+
+		for (var i = 0; i < this.lettersArray.length; i++) {
+
+			if (this.lettersArray[i].guessed === false) {
+
+				return;
+
+			}
+
+			else {
+
+				this.lettersGuessed++;
+
+				if (this.lettersGuessed === this.numOfLetters) {
+
+					this.wordGuessed = true;
+
+				}
+
+			}
 
 		}
 
