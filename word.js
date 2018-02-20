@@ -8,9 +8,11 @@ var Word = function() {
 
 	this.wordGuessed = false;
 
-	this.numOfLetters = this.lettersArray.length;
+	this.numOfLetters = 0;
 
 	this.lettersGuessed = 0;
+
+	this.guessCount = 12;
 
 	this.addLetter = function(char) {
 
@@ -36,6 +38,12 @@ var Word = function() {
 
 	}
 
+	this.calculateLetters = function() {
+
+		this.numOfLetters = this.lettersArray.length;
+
+	}
+
 	this.checkLetters = function(char) {
 
 		for (var i = 0; i < this.lettersArray.length; i++) {
@@ -48,15 +56,11 @@ var Word = function() {
 
 	this.checkWord = function() {
 
+		this.lettersGuessed = 0;
+
 		for (var i = 0; i < this.lettersArray.length; i++) {
 
-			if (this.lettersArray[i].guessed === false) {
-
-				return;
-
-			}
-
-			else {
+			if (this.lettersArray[i].guessed === true) {
 
 				this.lettersGuessed++;
 
